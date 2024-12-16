@@ -1,0 +1,6 @@
+Gemfile.lock
+
+.ruby-lsp
+.idea
+
+.tmp

@@ -1,0 +1,24 @@
+module Mnist
+  IMAGE_FILE_MAGIC_NUMBER: Integer
+  LABEL_FILE_MAGIC_NUMBER: Integer
+
+  class LoadImagesResult
+    attr_reader images: Integer
+    attr_reader num_images: Integer
+    attr_reader num_rows: Integer
+    attr_reader num_cols: Integer
+
+    def initialize: (images: Integer, num_images: Integer, num_rows: Integer, num_cols: Integer) -> void
+  end
+
+  class LoadLabelsResult
+    attr_reader labels: Integer
+    attr_reader num_labels: Integer
+
+    def initialize: (labels: Integer, num_labels: Integer) -> void
+  end
+
+  def self.load_images: (idx_file: String) -> LoadImagesResult
+
+  def self.load_labels: (idx_file: String) -> LoadLabelsResult
+end
