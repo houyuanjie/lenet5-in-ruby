@@ -26,6 +26,8 @@ module Mnist
         images << image
       end
 
+      raise "Images load failed. Expected #{num_images} images, got #{images.size}." unless num_images == images.size
+
       return LoadImagesResult.new(images, num_images, num_rows, num_cols)
     end
   end
@@ -39,6 +41,8 @@ module Mnist
 
       num_labels = file.read(4).unpack1('N')
       labels = file.read(num_labels).unpack('C*')
+
+      raise "Labels load failed. Expected #{num_labels} labels, got #{labels.size}." unless num_labels == labels.size
 
       return LoadLabelsResult.new(labels, num_labels)
     end
