@@ -13,6 +13,6 @@ module Nn
 
     def initialize: (in_features: Integer, out_features: Integer) -> void
 
-    def forward: (Array[Numeric] | untyped input) -> untyped
+    def forward: (Array[Numeric] input) -> Array[Numeric]
   end
 end

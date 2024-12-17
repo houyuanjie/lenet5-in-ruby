@@ -3,11 +3,9 @@ require 'matrix'
 module Nn
   class ReLU
     def forward(input)
-      unless input.is_a?(Array) || input.is_a?(Vector) || input.is_a?(Matrix)
-        raise TypeError, 'Parameter :input must be an Array, Vector, Matrix or Array of Matrix'
-      end
+      raise TypeError, 'Parameter :input must be an Array' unless input.is_a?(Array)
 
-      elems = input.map do |e|
+      input.map do |e|
         case e
         when Numeric
           e.positive? ? e : 0
@@ -17,8 +15,6 @@ module Nn
           raise TypeError, 'Elements of :input must be Numeric or Matrix'
         end
       end
-
-      elems.to_a if elems.is_a?(Vector)
     end
   end
 end

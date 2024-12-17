@@ -22,8 +22,8 @@ module Nn
     end
 
     def forward(input)
-      unless (input.is_a?(Array) && input.all? { |e| e.is_a?(Matrix) }) || input.is_a?(Matrix)
-        raise TypeError, 'Parameter :input must be an Array of Matrix or Matrix'
+      unless input.is_a?(Matrix) || (input.is_a?(Array) && input.all? { |e| e.is_a?(Matrix) })
+        raise TypeError, 'Parameter :input must be a Matrix or Array of Matrix'
       end
 
       input = [input] if input.is_a?(Matrix)
