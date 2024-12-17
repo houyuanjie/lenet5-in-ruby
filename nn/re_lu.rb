@@ -7,7 +7,7 @@ module Nn
         raise TypeError, 'Parameter :input must be an Array, Vector, Matrix or Array of Matrix'
       end
 
-      input.map do |e|
+      elems = input.map do |e|
         case e
         when Numeric
           e.positive? ? e : 0
@@ -17,6 +17,8 @@ module Nn
           raise TypeError, 'Elements of :input must be Numeric or Matrix'
         end
       end
+
+      elems.to_a
     end
   end
 end

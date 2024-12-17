@@ -1,5 +1,5 @@
 module Nn
   class ReLU
-    def forward: (Array[Numeric | untyped] | untyped input) -> (Array[Numeric | untyped] | untyped)
+    def forward: (Array[Numeric | untyped] | untyped input) -> Array[Numeric | untyped]
   end
 end
