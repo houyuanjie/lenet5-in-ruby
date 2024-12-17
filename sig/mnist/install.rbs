@@ -2,5 +2,5 @@ module Mnist
   BASE_URL: String
   FILES: Hash[Symbol, String]
 
-  def self.install_to: (dest_dir: String) -> void
+  def self.install_to: (String dist_dir) -> void
 end
