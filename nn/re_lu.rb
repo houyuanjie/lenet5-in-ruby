@@ -18,7 +18,7 @@ module Nn
         end
       end
 
-      elems.to_a
+      elems.to_a if elems.is_a?(Vector)
     end
   end
 end
