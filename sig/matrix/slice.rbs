@@ -1,0 +1,3 @@
+class Matrix
+  def slice: (row_range: Range[Integer], col_range: Range[Integer]) -> untyped
+end

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'fileutils'
+gem 'matrix'
 gem 'open-uri'
 gem 'zlib'
 
