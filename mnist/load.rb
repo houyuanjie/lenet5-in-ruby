@@ -4,10 +4,24 @@ module Mnist
   IMAGE_FILE_MAGIC_NUMBER = 0x0000_0803
   LABEL_FILE_MAGIC_NUMBER = 0x0000_0801
 
-  class LoadImagesResult < Data.define(:images, :num_images, :num_rows, :num_cols)
+  class LoadImagesResult
+    attr_reader :images, :num_images, :num_rows, :num_cols
+
+    def initialize(images, num_images, num_rows, num_cols)
+      @images = images
+      @num_images = num_images
+      @num_rows = num_rows
+      @num_cols = num_cols
+    end
   end
 
-  class LoadLabelsResult < Data.define(:labels, :num_labels)
+  class LoadLabelsResult
+    attr_reader :labels, :num_labels
+
+    def initialize(labels, num_labels)
+      @labels = labels
+      @num_labels = num_labels
+    end
   end
 
   def self.load_images(idx_file)
