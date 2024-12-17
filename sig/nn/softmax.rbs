@@ -1,0 +1,5 @@
+module Nn
+  class Softmax
+    def forward: (Array[Numeric] input) -> Array[Numeric]
+  end
+end

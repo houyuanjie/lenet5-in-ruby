@@ -1,0 +1,18 @@
+module Nn
+  class Linear
+    @in_features: Integer
+    @out_features: Integer
+    @weight: untyped
+    @bias: untyped
+
+    attr_reader in_features: Integer
+    attr_reader out_features: Integer
+
+    attr_accessor weight: untyped
+    attr_accessor bias: untyped
+
+    def initialize: (in_features: Integer, out_features: Integer) -> void
+
+    def forward: (Array[Numeric] | untyped input) -> untyped
+  end
+end

@@ -1,0 +1,23 @@
+module Nn
+  class MaxPool2d
+    @kernel_size: Integer
+    @stride: Integer
+    @channels: Integer
+    @height: Integer
+    @width: Integer
+    @out_height: Integer
+    @out_width: Integer
+
+    attr_reader kernel_size: Integer
+    attr_reader stride: Integer
+    attr_reader channels: Integer
+    attr_reader height: Integer
+    attr_reader width: Integer
+    attr_reader out_height: Integer
+    attr_reader out_width: Integer
+
+    def initialize: (kernel_size: Integer, stride: Integer, channels: Integer, height: Integer, width: Integer) -> void
+
+    def forward: (Array[untyped] input) -> Array[untyped]
+  end
+end

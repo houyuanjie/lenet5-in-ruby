@@ -1,0 +1,20 @@
+module Nn
+  class LeNet5
+    @conv1: untyped
+    @relu1: ReLU
+    @pool1: MaxPool2d
+    @conv2: untyped
+    @relu2: ReLU
+    @pool2: MaxPool2d
+    @fc1: Linear
+    @relu3: ReLU
+    @fc2: Linear
+    @relu4: ReLU
+    @fc3: Linear
+    @softmax: Softmax
+
+    def initialize: () -> void
+
+    def forward: (Array[untyped] | untyped input) -> Array[Numeric]
+  end
+end
