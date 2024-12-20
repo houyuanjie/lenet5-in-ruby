@@ -16,7 +16,7 @@ module Mnist
     FileUtils.mkdir_p(dest_dir)
 
     FILES.each_value do |filename|
-      dest_file = File.join(dest_dir, filename.gsub(/\.gz$/, ''))
+      dest_file = File.new(File.join(dest_dir, filename.gsub(/\.gz$/, '')))
       next if File.exist?(dest_file)
 
       puts "Downloading #{filename}..."
