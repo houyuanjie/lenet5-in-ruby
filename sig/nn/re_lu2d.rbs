@@ -1,0 +1,5 @@
+module Nn
+  class ReLU2d
+    def forward: (Array[untyped] input) -> Array[untyped]
+  end
+end

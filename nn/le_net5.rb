@@ -4,11 +4,11 @@ module Nn
   class LeNet5
     def initialize
       @conv1 = Conv2d.new(in_channels: 1, out_channels: 6, kernel_size: 5, height: 28, width: 28)
-      @relu1 = ReLU.new
+      @relu1 = ReLU2d.new
       @pool1 = MaxPool2d.new(kernel_size: 2, stride: 2, channels: 6, height: 24, width: 24)
 
       @conv2 = Conv2d.new(in_channels: 6, out_channels: 16, kernel_size: 5, height: 12, width: 12)
-      @relu2 = ReLU.new
+      @relu2 = ReLU2d.new
       @pool2 = MaxPool2d.new(kernel_size: 2, stride: 2, channels: 16, height: 8, width: 8)
 
       @fc1 = Linear.new(in_features: 16 * 4 * 4, out_features: 120)
