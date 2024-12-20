@@ -14,17 +14,7 @@ module Nn
     end
 
     def forward(input)
-      raise TypeError, 'Parameter :input must be an Array' unless input.is_a?(Array)
-      raise TypeError, 'Elements of :input must be Numeric' unless input.all? { |e| e.is_a?(Numeric) }
-
-      # NOTE: Linear layer in this case is only used for one dimensional input (Array or Vector).
-      #   So we can do a simple implementation.
-
-      input_vector = Vector.elements(input)
-
-      output_vector = input_vector * @weight + @bias
-
-      output_vector.to_a
+      (Vector.elements(input) * @weight + @bias).to_a
     end
   end
 end

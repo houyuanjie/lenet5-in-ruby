@@ -17,9 +17,6 @@ module Nn
     end
 
     def forward(input)
-      raise TypeError, 'Parameter :input must be an Array' unless input.is_a?(Array)
-      raise TypeError, 'Elements of :input must be Matrix' unless input.all? { |e| e.is_a?(Matrix) }
-
       output = Array.new(@channels)
 
       @channels.times do |chn|
