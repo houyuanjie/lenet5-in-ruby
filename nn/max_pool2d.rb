@@ -23,18 +23,18 @@ module Nn
       output = Array.new(@channels)
 
       @channels.times do |chn|
+        input_matrix = input[chn]
+
         pooled_matrix = Matrix.build(@out_height, @out_width) do |row, col|
-          h_start = row * @stride
-          h_end = h_start + @kernel_size
-          h_end = [h_end, @height].min
+          row_start = row * @stride
+          col_start = col * @stride
 
-          w_start = col * @stride
-          w_end = w_start + @kernel_size
-          w_end = [w_end, @width].min
+          sliced_matrix = input_matrix.slice(
+            row_start: row_start, row_length: @kernel_size,
+            col_start: col_start, col_length: @kernel_size
+          )
 
-          region = input[chn].slice(row_range: (h_start...h_end), col_range: (w_start...w_end))
-
-          region.max
+          sliced_matrix.max
         end
 
         output[chn] = pooled_matrix
