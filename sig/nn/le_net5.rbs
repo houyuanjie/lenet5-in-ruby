@@ -15,6 +15,6 @@ module Nn
 
     def initialize: () -> void
 
-    def forward: (Array[untyped] | untyped input) -> Array[Float]
+    def forward: (Array[Matrix] | Matrix input) -> Array[Float]
   end
 end

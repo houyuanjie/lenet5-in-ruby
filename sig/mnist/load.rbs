@@ -3,12 +3,12 @@ module Mnist
   LABEL_FILE_MAGIC_NUMBER: Integer
 
   class LoadImagesResult
-    attr_reader images: Array[untyped]
+    attr_reader images: Array[Matrix]
     attr_reader num_images: Integer
     attr_reader num_rows: Integer
     attr_reader num_cols: Integer
 
-    def initialize: (Array[untyped] images, Integer num_images, Integer num_rows, Integer num_cols) -> void
+    def initialize: (Array[Matrix] images, Integer num_images, Integer num_rows, Integer num_cols) -> void
   end
 
   class LoadLabelsResult

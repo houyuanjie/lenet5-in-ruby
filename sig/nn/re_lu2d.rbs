@@ -1,5 +1,5 @@
 module Nn
   class ReLU2d
-    def forward: (Array[untyped] input) -> Array[untyped]
+    def forward: (Array[Matrix] input) -> Array[Matrix]
   end
 end

@@ -18,6 +18,6 @@ module Nn
 
     def initialize: (kernel_size: Integer, stride: Integer, channels: Integer, height: Integer, width: Integer) -> void
 
-    def forward: (Array[untyped] input) -> Array[untyped]
+    def forward: (Array[Matrix] input) -> Array[Matrix]
   end
 end

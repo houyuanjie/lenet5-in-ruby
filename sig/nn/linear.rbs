@@ -2,14 +2,14 @@ module Nn
   class Linear
     @in_features: Integer
     @out_features: Integer
-    @weight: untyped
-    @bias: untyped
+    @weight: Matrix
+    @bias: Vector
 
     attr_reader in_features: Integer
     attr_reader out_features: Integer
 
-    attr_accessor weight: untyped
-    attr_accessor bias: untyped
+    attr_accessor weight: Matrix
+    attr_accessor bias: Vector
 
     def initialize: (in_features: Integer, out_features: Integer) -> void
 
