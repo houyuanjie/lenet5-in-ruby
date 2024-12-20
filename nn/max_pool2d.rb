@@ -3,7 +3,7 @@ require_relative '../matrix/slice'
 
 module Nn
   class MaxPool2d
-    attr_reader :kernel_size, :stride, :channels, :height, :width, :out_height, :out_width
+    attr_reader :kernel_size, :stride, :channels, :height, :width, :output_height, :output_width
 
     def initialize(kernel_size:, stride:, channels:, height:, width:)
       @kernel_size = kernel_size
@@ -12,8 +12,8 @@ module Nn
       @height = height
       @width = width
 
-      @out_height = (height - kernel_size) / stride + 1
-      @out_width = (width - kernel_size) / stride + 1
+      @output_height = (height - kernel_size) / stride + 1
+      @output_width = (width - kernel_size) / stride + 1
     end
 
     def forward(input)
@@ -22,7 +22,7 @@ module Nn
       @channels.times do |chn|
         input_matrix = input[chn]
 
-        pooled_matrix = Matrix.build(@out_height, @out_width) do |row, col|
+        pooled_matrix = Matrix.build(@output_height, @output_width) do |row, col|
           row_start = row * @stride
           col_start = col * @stride
 
