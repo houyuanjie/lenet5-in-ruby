@@ -10,11 +10,11 @@ module Nn
       @out_features = out_features
 
       @weight = Matrix.build(out_features, in_features) { rand(-0.1..0.1) }
-      @bias = Vector.elements(Array.new(out_features) { rand(-0.1..0.1) })
+      @bias = Array.new(out_features) { rand(-0.1..0.1) }
     end
 
     def forward(input)
-      (Vector.elements(input) * @weight + @bias).to_a
+      (Vector.elements(input) * @weight + Vector.elements(@bias)).to_a
     end
   end
 end
