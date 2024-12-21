@@ -1,0 +1,37 @@
+module Nn
+  class Conv2d
+    @in_channels: Integer
+    @out_channels: Integer
+    @kernel_size: Integer
+    @height: Integer
+    @width: Integer
+    @stride: Integer
+    @padding: Integer
+    @output_height: Integer
+    @output_width: Integer
+
+    @weights: Array[Array[Matrix]]
+    @bias: Array[Numeric]
+
+    attr_reader in_channels: Integer
+    attr_reader out_channels: Integer
+    attr_reader kernel_size: Integer
+    attr_reader height: Integer
+    attr_reader width: Integer
+    attr_reader stride: Integer
+    attr_reader padding: Integer
+    attr_reader output_height: Integer
+    attr_reader output_width: Integer
+
+    attr_accessor weights: Array[Array[Matrix]]
+    attr_accessor bias: Array[Numeric]
+
+    def initialize: (in_channels: Integer, out_channels: Integer, kernel_size: Integer, height: Integer, width: Integer, ?stride: Integer, ?padding: Integer) -> void
+
+    def forward: (Array[Matrix] input) -> Array[Matrix]
+
+    private
+
+    def pad_input: (Array[Matrix] input) -> Array[Matrix]
+  end
+end

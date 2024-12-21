@@ -1,9 +1,9 @@
 module Nn
   class LeNet5
-    @conv1: untyped
+    @conv1: Conv2d
     @relu1: ReLU2d
     @pool1: MaxPool2d
-    @conv2: untyped
+    @conv2: Conv2d
     @relu2: ReLU2d
     @pool2: MaxPool2d
     @fc1: Linear
