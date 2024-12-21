@@ -1,5 +1,5 @@
 module Nn
   class ReLU
-    def forward: (Array[Numeric] input) -> Array[Numeric]
+    def self.forward: (Array[Numeric] input) -> Array[Numeric]
   end
 end
