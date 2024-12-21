@@ -1,4 +1,5 @@
 .ruby-lsp
 .idea
 
-.tmp
+.pyvenv
+**/__pycache__
