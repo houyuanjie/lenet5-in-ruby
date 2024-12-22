@@ -25,3 +25,15 @@ pip install -r requirements.txt
 ```powershell
 bundle install
 ```
+
+## Run
+
+1. Run pytorch train.py script:
+```powershell
+python train.py
+```
+
+2. Run ruby main.rb script:
+```powershell
+ruby main.rb
+```
