@@ -10,7 +10,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = LeNet5().to(device)
 
-dataset_dir = Path(__file__).parent / "model" / "dataset"
+dataset_dir = Path(__file__).parent / "dataset"
 transform = transforms.Compose([transforms.ToTensor()])
 
 train_dataset = datasets.MNIST(root=dataset_dir, train=True, transform=transform)
