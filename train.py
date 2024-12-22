@@ -22,6 +22,7 @@ test_dataloader = data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=F
 
 loss_fn = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=1e-3, momentum=0.9)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
 
 def optimize(model, dataloader, loss_fn, optimizer):
@@ -74,6 +75,8 @@ for epoch in range(epochs):
     optimize(model, train_dataloader, loss_fn, optimizer)
 
     test_loss, accuracy = test(model, test_dataloader, loss_fn)
+    scheduler.step()
+
     if test_loss < best_loss:
         best_loss = test_loss
         best_accuracy = accuracy
