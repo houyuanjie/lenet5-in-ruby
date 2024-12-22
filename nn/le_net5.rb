@@ -2,6 +2,8 @@ require_relative '../matrix/flatten'
 
 module Nn
   class LeNet5
+    attr_reader :conv1, :pool1, :conv2, :pool2, :fc1, :fc2, :fc3
+
     def initialize
       @conv1 = Conv2d.new(in_channels: 1, out_channels: 6, kernel_size: 5, height: 28, width: 28)
       @pool1 = MaxPool2d.new(kernel_size: 2, stride: 2, channels: 6, height: 24, width: 24)
