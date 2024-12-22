@@ -27,6 +27,7 @@ scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
 def optimize(model, dataloader, loss_fn, optimizer):
     model.train()
+
     for batch_idx, (data, target) in enumerate(dataloader):
         data, target = data.to(device), target.to(device)
 
@@ -42,6 +43,7 @@ def optimize(model, dataloader, loss_fn, optimizer):
 
 def test(model, dataloader, loss_fn):
     model.eval()
+
     correct = 0
     total = 0
     test_loss = 0
@@ -73,7 +75,6 @@ for epoch in range(epochs):
     print(f"Epoch {epoch+1}/{epochs}")
 
     optimize(model, train_dataloader, loss_fn, optimizer)
-
     test_loss, accuracy = test(model, test_dataloader, loss_fn)
     scheduler.step()
 
@@ -92,3 +93,4 @@ for epoch in range(epochs):
 print("Training complete.")
 print(f"Best Loss: {best_loss:.4f}.")
 print(f"Best Accuracy: {best_accuracy:.2f}%")
+print(f"Best Model Saved at: {best_model_save_path}")
