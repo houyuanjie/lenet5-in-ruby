@@ -14,7 +14,16 @@ module Nn
     end
 
     def forward(input)
-      (Vector.elements(input) * @weight + Vector.elements(@bias)).to_a
+      # TODO: Find out why Matrix.column_vector is not working here.
+
+      input_vector = Matrix.row_vector(input)
+      weight_transpose = @weight.transpose
+      bias_vector = Matrix.row_vector(@bias)
+
+      output_vector = input_vector * weight_transpose + bias_vector
+      raise 'Linear layer output is not a vector.' unless output_vector.row_count == 1
+
+      output_vector.row(0).to_a
     end
   end
 end
