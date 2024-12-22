@@ -7,6 +7,5 @@ gem 'zlib'
 
 group :development do
   gem 'debug'
-  gem 'rbs'
   gem 'rubocop'
 end

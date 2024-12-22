@@ -1,6 +1,0 @@
-module Mnist
-  BASE_URL: String
-  FILES: Hash[Symbol, String]
-
-  def self.install_to: (String dist_dir) -> void
-end

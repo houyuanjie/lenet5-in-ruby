@@ -1,5 +1,0 @@
-module Nn
-  class ReLU2d
-    def self.forward: (Array[Matrix] input) -> Array[Matrix]
-  end
-end

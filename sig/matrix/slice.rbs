@@ -1,3 +1,0 @@
-class Matrix
-  def slice: (row_start: Integer, row_length: Integer, col_start: Integer, col_length: Integer) -> Matrix
-end
