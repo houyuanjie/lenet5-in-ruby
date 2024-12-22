@@ -1,3 +1,8 @@
+require_relative 'conv2d'
+require_relative 'max_pool2d'
+require_relative 'linear'
+require_relative 're_lu2d'
+require_relative 're_lu'
 require_relative '../matrix/flatten'
 
 module Nn
@@ -38,6 +43,11 @@ module Nn
       last = ReLU.forward(last) # 84
 
       @fc3.forward(last) # 10
+    end
+
+    def predict(input)
+      output = forward(input)
+      output.index(output.max)
     end
   end
 end
