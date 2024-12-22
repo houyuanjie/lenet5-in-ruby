@@ -7,6 +7,7 @@ from pathlib import Path
 from model.le_net5 import LeNet5
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
 
 model = LeNet5().to(device)
 
