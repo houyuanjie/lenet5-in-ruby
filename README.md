@@ -2,25 +2,12 @@
 
 ## Requirements
 
-* Ruby 3 [version](.ruby-version)
-* Python 3.12
+- Ruby 3 [version](.ruby-version)
+- Python 3.12
 
 ## Setup
 
-1. Install Python venv and activate it:
-
-```powershell
-python -m venv .pyvenv
-.\.pyvenv\Scripts\Activate.ps1
-```
-
-2. Install Python dependencies:
-
-```powershell
-pip install -r requirements.txt
-```
-
-3. Install Ruby dependencies:
+Install Ruby dependencies:
 
 ```powershell
 bundle install
@@ -28,12 +15,8 @@ bundle install
 
 ## Run
 
-1. Run pytorch train.py script:
-```powershell
-python train.py
-```
+Run ruby main.rb script:
 
-2. Run ruby main.rb script:
 ```powershell
 ruby main.rb
 ```
