@@ -41,7 +41,7 @@ python += '.exe' if is_windows
 puts 'Training model...'
 system("#{python} train.py")
 
-raise 'Not found model/setup.rb after training' unless File.exist?('model/setup.rb')
+raise "Not found #{setup_rb} after training" unless File.exist?(setup_rb)
 
 # 加载测试集数据
 
