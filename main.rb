@@ -67,8 +67,10 @@ total_count = test_labels.num_labels
 
 correct_count = 0
 test_images.num_images.times do |i|
-  puts "Testing #{i}/#{total_count}" if (i % 200).zero?
-  puts "Current correct: #{correct_count}/#{i}" if (i % 200).zero?
+  if (i % 200).zero?
+    puts "Testing #{i}/#{total_count}"
+    puts "Current correct: #{correct_count}/#{i}"
+  end
 
   image = test_images.images[i]
   label = test_labels.labels[i]
@@ -77,6 +79,10 @@ test_images.num_images.times do |i|
   correct_count += 1 if predicted_label == label
 end
 
+puts '-' * 80
+puts "Total correct: #{correct_count}/#{total_count}"
+
 accuracy = (correct_count.to_f / total_count) * 100
 puts "Test Accuracy: #{accuracy}%"
+
 puts 'Ok'
