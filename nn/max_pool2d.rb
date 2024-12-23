@@ -17,12 +17,10 @@ module Nn
     end
 
     def forward(input)
-      output = Array.new(@channels)
-
-      @channels.times do |chn|
+      Array.new(@channels) do |chn|
         input_matrix = input[chn]
 
-        pooled_matrix = Matrix.build(@output_height, @output_width) do |row, col|
+        Matrix.build(@output_height, @output_width) do |row, col|
           row_start = row * @stride
           col_start = col * @stride
 
@@ -33,11 +31,7 @@ module Nn
 
           sliced_matrix.max
         end
-
-        output[chn] = pooled_matrix
       end
-
-      output
     end
   end
 end
