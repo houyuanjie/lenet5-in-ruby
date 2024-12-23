@@ -1,5 +1,3 @@
-require 'matrix'
-
 module Nn
   class ReLU
     def self.forward(input)
