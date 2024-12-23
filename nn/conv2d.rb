@@ -49,7 +49,7 @@ module Nn
               col_start: col_start, col_length: @kernel_size
             )
 
-            conv_terms[in_chn] = sliced_matrix.dot(kernel)
+            conv_terms[in_chn] = sliced_matrix.f_dot(kernel)
           end
 
           conv_terms.sum + @bias[out_chn]
