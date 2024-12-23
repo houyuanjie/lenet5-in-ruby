@@ -19,7 +19,7 @@ unless Dir.exist?(pyvenv)
   system('python -m venv .pyvenv')
 end
 
-is_windows = RUBY_PLATFORM =~ /windwos|mswin|mingw/
+is_windows = RUBY_PLATFORM =~ /windows|mswin|mingw/
 
 pip = "#{pyvenv}/Scripts/pip"
 pip += '.exe' if is_windows
