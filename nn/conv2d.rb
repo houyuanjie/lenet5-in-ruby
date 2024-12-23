@@ -27,21 +27,20 @@ module Nn
     end
 
     def forward(input)
-      padded_input = pad_input(input)
+      input = pad_input(input)
 
-      output = Array.new(@out_channels)
-
-      @out_channels.times do |out_chn|
+      Array.new(@out_channels) do |out_chn|
         kernels = @weights[out_chn]
+        var = @bias[out_chn]
 
-        feature_map = Matrix.build(@output_height, @output_width) do |row, col|
+        Matrix.build(@output_height, @output_width) do |row, col|
           row_start = row * stride
           col_start = col * stride
 
-          conv_terms = Array.new(@in_channels)
+          conv_sum = 0
 
           @in_channels.times do |in_chn|
-            input_matrix = padded_input[in_chn]
+            input_matrix = input[in_chn]
             kernel = kernels[in_chn]
 
             sliced_matrix = input_matrix.slice(
@@ -49,16 +48,12 @@ module Nn
               col_start: col_start, col_length: @kernel_size
             )
 
-            conv_terms[in_chn] = sliced_matrix.f_dot(kernel)
+            conv_sum += sliced_matrix.f_dot(kernel)
           end
 
-          conv_terms.sum + @bias[out_chn]
+          conv_sum + var
         end
-
-        output[out_chn] = feature_map
       end
-
-      output
     end
 
     private
