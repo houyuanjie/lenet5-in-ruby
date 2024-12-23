@@ -203,4 +203,4 @@ with open(setup_rb_path, "w") as file:
     file.write("# Do not edit manually.\n")
     make_setup_rb(file)
 
-print("Ok.")
+print("setup.rb generated.")
