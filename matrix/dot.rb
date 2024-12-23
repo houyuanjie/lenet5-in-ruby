@@ -2,16 +2,20 @@ require 'matrix'
 
 class Matrix
   def frobenius_inner_product(other)
-    raise 'Matrix dimensions do not match.' unless row_count == other.row_count && column_count == other.column_count
+    this_rows = rows
+    other_rows = other.rows
+
+    num_row_count = this_rows.size
+    num_col_count = column_count
 
     sum = 0
 
-    row_count.times do |row_index|
-      this_row = rows[row_index]
-      other_row = other.rows[row_index]
+    num_row_count.times do |r|
+      this_row = this_rows[r]
+      other_row = other_rows[r]
 
-      column_count.times do |col_index|
-        sum += this_row[col_index] * other_row[col_index]
+      num_col_count.times do |c|
+        sum += this_row[c] * other_row[c]
       end
     end
 
