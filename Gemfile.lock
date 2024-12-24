@@ -44,6 +44,7 @@ GEM
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.37.0)
       parser (>= 3.3.1.0)
+    ruby-prof (1.7.1-x64-mingw-ucrt)
     ruby-progressbar (1.13.0)
     stringio (3.1.2)
     time (0.4.1)
@@ -63,6 +64,7 @@ DEPENDENCIES
   matrix
   open-uri
   rubocop
+  ruby-prof
   zlib
 
 BUNDLED WITH

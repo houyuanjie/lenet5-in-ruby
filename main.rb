@@ -63,6 +63,16 @@ require_relative 'model/setup'
 model = Nn::LeNet5.new
 Nn::LeNet5.setup(model)
 
+# 测量执行情况
+
+require_relative 'misc/prof'
+
+prof('report') do
+  model.predict(test_images.images[0])
+end
+
+# 测试准确度
+
 total_count = test_labels.num_labels
 
 correct_count = 0

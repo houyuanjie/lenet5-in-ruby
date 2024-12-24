@@ -8,4 +8,5 @@ gem 'zlib'
 group :development do
   gem 'debug'
   gem 'rubocop'
+  gem 'ruby-prof'
 end
