@@ -14,16 +14,11 @@ module Nn
     end
 
     def forward(input)
-      # 矩阵乘法要求输入向量的列数 (input.length) 等于权重矩阵转置后的行数 (@in_features)
-      # 因此，我们使用 Matrix.row_vector 将输入转换为 1 行矩阵
-      # 得到的结果同样是一个 1 行矩阵，取得其第 1 行，即结果向量
+      input_v = Vector.elements(input, false)
+      bias_v = Vector.elements(@bias, false)
 
-      input_vector = Matrix.row_vector(input)
-      weight_transpose = @weight.transpose
-      bias_vector = Matrix.row_vector(@bias)
-
-      output_vector = input_vector * weight_transpose + bias_vector
-      output_vector.row(0).to_a
+      output_v = @weight * input_v + bias_v
+      output_v.to_a
     end
   end
 end
