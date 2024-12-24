@@ -20,10 +20,8 @@ module Nn
       @output_height = ((height - kernel_size + 2 * padding) / stride) + 1
       @output_width = ((width - kernel_size + 2 * padding) / stride) + 1
 
-      @weights = Array.new(out_channels) do
-        Array.new(in_channels) { Matrix.build(kernel_size, kernel_size) { rand(-0.1..0.1) } }
-      end
-      @bias = Array.new(out_channels) { rand(-0.1..0.1) }
+      @weights = Array.new(out_channels) { Array.new(in_channels) { Matrix.zero(kernel_size, kernel_size) } }
+      @bias = Array.new(out_channels) { 0 }
     end
 
     def forward(input)

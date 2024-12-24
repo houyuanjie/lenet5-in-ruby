@@ -9,8 +9,8 @@ module Nn
       @in_features = in_features
       @out_features = out_features
 
-      @weight = Matrix.build(out_features, in_features) { rand(-0.1..0.1) }
-      @bias = Array.new(out_features) { rand(-0.1..0.1) }
+      @weight = Matrix.zero(out_features, in_features)
+      @bias = Array.new(out_features) { 0 }
     end
 
     def forward(input)
