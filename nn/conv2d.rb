@@ -25,7 +25,7 @@ module Nn
     end
 
     def forward(input)
-      input = pad_input(input)
+      input = padded_input(input)
 
       Array.new(@out_channels) do |out_chn|
         kernels = @weights[out_chn]
@@ -56,20 +56,20 @@ module Nn
 
     private
 
-    def pad_input(input)
-      return input if padding.zero?
+    def padded_input(input)
+      return input if @padding.zero?
 
-      padded_height = height + 2 * padding
-      padded_width = width + 2 * padding
+      padded_height = @height + 2 * @padding
+      padded_width = @width + 2 * @padding
 
       Array.new(@in_channels) do |chn|
         input_matrix = input[chn]
 
         Matrix.build(padded_height, padded_width) do |row, col|
-          if row < padding || padded_height - padding <= row || col < padding || padded_width - padding <= col
+          if row < @padding || padded_height - @padding <= row || col < @padding || padded_width - @padding <= col
             0
           else
-            input_matrix[row - padding, col - padding]
+            input_matrix[row - @padding, col - @padding]
           end
         end
       end
