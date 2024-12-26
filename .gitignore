@@ -1,8 +1,12 @@
 .ruby-lsp
 .idea
+.vscode/c_cpp_properties.json
 
 .pyvenv
 **/__pycache__
 
 dataset
 report
+
+lib
+tmp

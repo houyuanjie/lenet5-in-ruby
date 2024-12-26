@@ -2,6 +2,14 @@ require 'matrix'
 require_relative '../matrix/slice'
 require_relative '../matrix/dot'
 
+begin
+  require_relative '../lib/native_conv2d'
+
+  puts 'INFO: native_conv2d is available'
+rescue LoadError
+  puts 'WARN: native_conv2d is not available'
+end
+
 module Nn
   class Conv2d
     attr_reader :in_channels, :out_channels, :kernel_size, :height, :width, :stride, :padding,
@@ -26,6 +34,12 @@ module Nn
 
     def forward(input)
       input = padded_input(input)
+
+      if respond_to?(:native_forward, true)
+        return native_forward(input, @in_channels, @height, @width,
+                              @out_channels, @output_height, @output_width,
+                              @weights, @bias, @kernel_size, @stride)
+      end
 
       Array.new(@out_channels) do |out_chn|
         kernels = @weights[out_chn]
