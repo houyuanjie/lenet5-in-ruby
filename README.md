@@ -20,3 +20,12 @@ Run ruby main.rb script:
 ```powershell
 ruby main.rb
 ```
+
+## Native Ext.
+
+Run rake-compiler:
+
+```powershell
+# ridk enable
+rake compile
+```
