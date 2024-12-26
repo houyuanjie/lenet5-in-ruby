@@ -8,7 +8,7 @@ VALUE class_matrix;
 
 // module Nn
 VALUE module_nn;
-// module Conv2d
+// class Conv2d
 VALUE class_conv2d;
 
 // Conv2d#native_forward
